@@ -12,9 +12,9 @@
 # from a context staged with `clearcutt-factory render --context-dir`, where
 # $ANNOTATIONS (comma-separated) records the base for `clearcutt-factory rebase`:
 #   annotation-manifest[linux/amd64].org.opencontainers.image.base.name=ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24
-#   annotation-manifest[linux/amd64].org.opencontainers.image.base.digest=sha256:e071ffbf9caa2e3adf696fc974e728a5fc2a99492749e47943424701ac28124c
+#   annotation-manifest[linux/amd64].org.opencontainers.image.base.digest=sha256:a7ca0c7cf9e485ab389370c8eebc2665b8c49367ba6e4751c388df7c9c01797a
 #   annotation-manifest[linux/arm64].org.opencontainers.image.base.name=ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24
-#   annotation-manifest[linux/arm64].org.opencontainers.image.base.digest=sha256:1ce712741e21d9b3ed8ae71b1099e6d20282cb82472a3231a067fb1fb78bca11
+#   annotation-manifest[linux/arm64].org.opencontainers.image.base.digest=sha256:a836bb2566b2fe96ae1e0443e8c3cf8ee67969ac352909c6e6b4d792d9809b0d
 
 ARG TARGETARCH
 
@@ -49,7 +49,7 @@ cp -R dist node_modules package.json /out/
 FACTORY_EOF
 
 # ---- app ----
-FROM ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24@sha256:f12bc0c8f6b01291d7a638c046b8f824359678c20172421b839a67cc408f5187
+FROM ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24@sha256:e3620169865afc9915c4bc4bf1b4428140f0864f5c1e1e017ed67a920cf7e01c
 COPY --link --from=build /out/ /app/
 ENV NODE_ENV="production"
 ENV PORT="8080"
