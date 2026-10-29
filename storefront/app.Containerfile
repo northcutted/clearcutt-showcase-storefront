@@ -19,7 +19,7 @@
 ARG TARGETARCH
 
 # ---- build: stack node ----
-FROM ghcr.io/northcutted/clearcutt-showcase/platform/build-node:24@sha256:c26523026253ba07752d110a0671d16b8e7a0b6bf23c883cbf24760a2aa71891 AS build
+FROM ghcr.io/northcutted/clearcutt-showcase/platform/build-node:24@sha256:8ae217691ed30fe7d4e67d3585315436023ff93775c0faca44839d5bcf5013e8 AS build
 # never shipped; root so the steps can write /out, /src, and the caches
 USER 0
 ARG TARGETOS TARGETARCH SOURCE_DATE_EPOCH
