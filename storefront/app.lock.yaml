@@ -2,12 +2,12 @@
 apiVersion: factory.clearcutt.dev/v1alpha1
 kind: Lock
 generator: clearcutt-factory v0.4.1
-contentDigest: sha256:f68de0d50b8ccfb7b5b0265148dba02e395387b77d4436317cac5be2b5b40e2a
+contentDigest: sha256:cb596a3444446fa19d72eb25b5f1d92d8d1603bd546ee23e4ed495a4c06f0ee6
 inputsDigest: sha256:77d6adef76a5bc589becefc1c0729d8bd412ddc77e14486e1292cc68545fb764
 sourceDateEpoch: 1793145600
 profile:
   ref: ghcr.io/northcutted/clearcutt-showcase/factory/org:1
-  digest: sha256:2220b412dd91c29525c92014e025aea127a8954d538b91323478eccada8c1003
+  digest: sha256:1bb0b6d38484a7d9046da615b855dfda3a5692cb31ff2a1fb00408b943a77fe2
 builder:
   buildkit:
     ref: moby/buildkit:v0.33.1
