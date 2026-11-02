@@ -7,19 +7,19 @@
 # (moby/buildkit:v0.33.1@sha256:cec9f139f45e93c5c69c60f8b07cfad9f43f4ef6b6a6cd917527fea5ff2e3dea):
 #   buildctl build --frontend dockerfile.v0 --local context=. --local dockerfile=. \
 #     --opt platform=linux/amd64,linux/arm64 \
-#     --opt build-arg:SOURCE_DATE_EPOCH=1793145600 \
+#     --opt build-arg:SOURCE_DATE_EPOCH=1793491200 \
 #     --output type=oci,dest=image.tar,rewrite-timestamp=true,$ANNOTATIONS
 # from a context staged with `clearcutt-factory render --context-dir`, where
 # $ANNOTATIONS (comma-separated) records the base for `clearcutt-factory rebase`:
 #   annotation-manifest[linux/amd64].org.opencontainers.image.base.name=ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24
-#   annotation-manifest[linux/amd64].org.opencontainers.image.base.digest=sha256:3ea212316af2bd8330ac345c5859f28e5f04489c35e5712cbb6995fbf5535af5
+#   annotation-manifest[linux/amd64].org.opencontainers.image.base.digest=sha256:b7c27fad10598a6b950005e8c2d3a29b2ff4a918efd72a27af3c65ca243f0e83
 #   annotation-manifest[linux/arm64].org.opencontainers.image.base.name=ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24
-#   annotation-manifest[linux/arm64].org.opencontainers.image.base.digest=sha256:1df30dea23654199c2462e2fcd45db8fe2816619031d5e81cb5aefdc6df9e332
+#   annotation-manifest[linux/arm64].org.opencontainers.image.base.digest=sha256:3d92db0988d3d43f3101351b68cdd30f15c7eb437ecba8207de81a0b7366fbdd
 
 ARG TARGETARCH
 
 # ---- build: stack node ----
-FROM ghcr.io/northcutted/clearcutt-showcase/platform/build-node:24@sha256:8ae217691ed30fe7d4e67d3585315436023ff93775c0faca44839d5bcf5013e8 AS build
+FROM ghcr.io/northcutted/clearcutt-showcase/platform/build-node:24@sha256:75887fb01ddb06b01679d07d0e8646b1103e883750fafeab6266477a6a93c279 AS build
 # never shipped; root so the steps can write /out, /src, and the caches
 USER 0
 ARG TARGETOS TARGETARCH SOURCE_DATE_EPOCH
@@ -49,7 +49,7 @@ cp -R dist node_modules package.json /out/
 FACTORY_EOF
 
 # ---- app ----
-FROM ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24@sha256:5b0a15d5ebd649fbdac095632de10c22195a5ed97c119bcbdf9f4230867554b2
+FROM ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24@sha256:b16542501d4d417f18a042ea9bd23356eccde2f58361c7c24640a1c1a937d386
 COPY --link --from=build /out/ /app/
 ENV NODE_ENV="production"
 ENV PORT="8080"
