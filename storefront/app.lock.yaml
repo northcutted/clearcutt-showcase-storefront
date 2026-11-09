@@ -2,9 +2,9 @@
 apiVersion: factory.clearcutt.dev/v1alpha1
 kind: Lock
 generator: clearcutt-factory v0.4.1
-contentDigest: sha256:df02857bd0ad627f5fc1d4416ed1e664247c16060e1e693af7885c3eeec19f8b
+contentDigest: sha256:e3e8080a9f5ec36e2b0246736db7f71a93c60a2fb3bf813fc2baeccaf861162d
 inputsDigest: sha256:a8edb888a41d349301aaf5f9224235ba6317f7d1d0da98728a17c212deb7801c
-sourceDateEpoch: 1793491200
+sourceDateEpoch: 1794096000
 profile:
   ref: ghcr.io/northcutted/clearcutt-showcase/factory/org:1
   digest: sha256:1bb0b6d38484a7d9046da615b855dfda3a5692cb31ff2a1fb00408b943a77fe2
@@ -17,7 +17,7 @@ builder:
     digest: sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
   toolbox:
     ref: cgr.dev/chainguard/wolfi-base:latest
-    digest: sha256:88a20e2d017bd20cdc0cb3910de603e7bea9512a6c351a8dd3c9df212ab03d73
+    digest: sha256:24f549a7fcace88e69b9557941168c74645688ecc4acf7fb6d734a6b74e9019d
 base:
   ref: ghcr.io/northcutted/clearcutt-showcase/platform/run-node:24
   digest: sha256:b16542501d4d417f18a042ea9bd23356eccde2f58361c7c24640a1c1a937d386
